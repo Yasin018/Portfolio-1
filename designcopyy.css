@@ -1,0 +1,253 @@
+body {
+    background-color: rgb(20, 14, 14);
+    margin: 0;
+    padding-top: 150px;
+    padding-left: 20px;
+    padding-bottom: 900px;
+}
+
+.header {
+    height: 70px;
+    background-color: #ababab;   
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    box-shadow: inset 4px 4px 10px  rgb(63, 48, 48);
+    z-index: 1;
+}
+
+.left-section {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    color: white;
+    display: grid;
+    grid-template-rows: 1fr;
+    place-items: end;
+    flex-shrink: 0;
+    padding-left: 2em;
+    background-color: firebrick;
+    border-top-right-radius: 20px;
+    border-bottom: 2px solid #ababab;
+}
+
+
+.middle-section {
+    display: grid;
+    width: 600vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 2em;
+    padding-right: 200px;
+    padding-left: 100px;
+}
+
+.right-section {
+    width: 255px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding-right: 25px;
+}
+
+.left-section{
+    letter-spacing: 3px;
+    transition: text-shadow 300ms;
+}
+.left-section:hover {
+    text-shadow: red -3px 0, cyan 3px 0;
+}
+
+.buttons {
+    background: transparent;
+    border: none;
+    height: auto;
+    padding: 0;
+    margin-top: 5px;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+}
+.buttons:hover {    
+    color: firebrick;
+    transform: scale(1.1);
+    transition: transform 0.15s;
+}
+.buttons:active {
+    transform: scale(0.9);    
+    text-shadow: firebrick 1px 0 10px;
+}
+
+.git-icon,
+.linkedin-icon,
+.twitter-icon {
+    position: relative;
+    display: grid;
+    justify-content: center;
+}
+.git-icon .tooltip,
+.linkedin-icon .tooltip,
+.twitter-icon .tooltip {
+    position: absolute;
+    background-color: #ababab;
+    border-radius: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    justify-content: center;
+    bottom: -39px;
+    opacity: 0;
+    pointer-events: none;
+    font-weight: 500;
+}
+.git-icon:hover .tooltip,
+.linkedin-icon:hover .tooltip,
+.twitter-icon:hover .tooltip {
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+
+.linkedin,
+.git {
+    height: 30px;
+}
+.linkedin:active,
+.git:active {
+    scale: 0.9;
+    transition: 0.25s;
+}
+.linkedin {
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.social-icons {
+    color: black;
+}
+
+
+.profile {
+    display: flex;
+    margin-bottom: 80px;
+}
+.profile-pic {
+    margin-right: 100px;
+    margin-left: 30px;
+    border-radius: 20px;
+    transition: transform 0.75s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+.Name {
+    color: #ababab;
+    font-family: Poppins, sans-serif;
+    margin: 20px;
+    font-weight: bold;
+    font-size: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.Name span {
+    color: #ffffff;
+    border-right: 8px solid transparent;
+    animation: blink 1s infinite step-end;
+}
+
+@keyframes blink {
+    from { border-color: transparent;}
+    50% { border-color : orange}
+}
+
+p {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e8e8e8;
+}
+
+.overview {
+    width: 60%;
+    padding: 8px 20px;
+    border: 2px solid rgba(156, 156, 156);
+    border-radius: 14px;
+    box-shadow: 5px 5px 10px rgba(156, 156, 156, 0.895);
+    letter-spacing: 2px;
+    color: rgb(212, 207, 207);
+}
+
+
+.Projects {
+    color: #ababab;
+    padding-left: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+}
+
+.flex {
+    display: flex;
+}
+.project {
+    width: 300px;
+    height: 250px;
+    perspective: 1000px;
+    margin-right: 70px;
+    margin-top: 30px;
+}
+
+.card-effect {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.999s;
+}
+
+.project:hover .card-effect {
+    transform: rotateY(180deg);
+}
+
+.description,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    text-shadow: 2px px black ;
+}
+
+.description {
+    background-color: rgba(255, 68, 0, 0.848);
+    color: white;
+    border-radius: 10px;
+    font-size: 24px;
+    transform: rotateY(0deg);
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.back {
+    border-radius: 10px;
+    transform: rotateY(180deg);
+}
+
+.back .project-img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+
+.Qualification {
+    font-size: 20px;
+    display: inline-block;
+    color: white;
+}
+
+

@@ -1,0 +1,28 @@
+<main>
+    <header style="background-color: rgb(215, 76, 41);">header</header>
+    <article style="background-color: rgb(45, 165, 67);">content</article>
+    <aside style="background-color: rgb(62, 30, 191);">sidebar</aside>
+    <footer style="background-color: blueviolet;">footer</footer>
+</main>
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    main {
+        display: grid;
+        grid-template-areas: 
+        "head head head"
+        "side content content"
+        "foot foot foot";
+        grid-template-rows: 50px 50px 50px;
+    }
+
+    header { grid-area: head; }
+    article { grid-area: content; }
+    aside { grid-area: side;}
+    footer { grid-area: foot; }
+
+</style>

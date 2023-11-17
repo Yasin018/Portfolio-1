@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Flip</title>
+        <style>
+            
+            body {
+                background-color: black;
+            }
+
+            p {
+                color: white;
+            }
+
+            .top-div {
+                height: 200px;
+                width: 200px;
+                perspective: 1000px;
+            }
+
+            .card-effect {
+                height: 100%;
+                width: 100%;    
+                position: relative;
+                transform-style: preserve-3d;
+                transition: transform 0.999s;
+                transform-origin: right center;
+            }
+
+            .top-div:hover .card-effect {
+                transform: rotateY(180deg);
+            }
+
+            .front, .back {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                backface-visibility: hidden;                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+            .front {
+                background-color: rgb(0, 255, 8);
+                transform: rotateY(0deg);
+            }
+
+            .back {
+                background-color: yellow;
+                transform: rotateY(180deg);
+            }
+           
+        </style>
+    </head>
+    <body>
+
+        <div class="top-div">
+            <div class="card-effect">
+                <div class="front">
+                    <p>FRONT</p>
+                </div>
+                <div class="back">
+                    <p>BACK</p>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

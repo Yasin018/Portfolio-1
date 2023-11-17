@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Try Copy</title>
+        <link rel="stylesheet" href="designcopyy.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <div class="left-section">
+                SHAIK YASIN
+            </div>
+            <div class="middle-section">
+                <button class="buttons" onclick="scrollPage(0)">HOME</button>
+                <button class="buttons" onclick="scrollPage(560)">PROJECTS</button>
+                <button class="buttons" onclick="scrollPage(970)">QUALIFICATION</button>
+                <button class="buttons" onclick="scrollPage(1150)">ABOUT ME</button>
+            </div>
+            <div class="right-section">
+                <div class="git-icon">
+                    <a href="https://github.com/Yasin018">
+                        <img class="git" src="pics/github-mark-white.png">
+                    </a>
+                    <div class="tooltip">GitHub</div>
+                </div>
+                <div class="linkedin-icon">
+                    <a href="https://www.linkedin.com/in/yasin-sk-a6a79b243">
+                    <img class="linkedin" src="pics/linkedin logo.png">
+                    </a>
+                    <div class="tooltip">LinkedIN</div>
+                </div>
+                <div class="twitter-icon">
+                    <img class="linkedin" src="pics/3d-rounded-square-with-glossy-twitter-logo_125540-1543.jpg">
+                    <div class="tooltip">Twitter</div>
+                </div>
+                <button class="buttons">RESUME</button>
+            </div>
+        </div>
+        
+        <div class="profile">
+            <img class="profile-pic" src="pics/My pic 1.jpg" alt="">
+            <div class="details">
+                <div class="Name">
+                    Hello! <br>Welcome to my Porfolio.<br>I am <span>Shaik Yasin</span>
+                </div>
+                <div class="overview">
+                    <p>
+                        Self motivated and hard working fresher seeking for an opportunity, willingness to work at a well-established indigenous enterprise to utilize my knowledge and intelligence in the growth of the organization.
+                    </p>
+                </div>
+            </div> 
+        </div>
+        
+        <div class="Projects"><h1>Projects</h1>
+            <div class="flex">
+                <div class="project">
+                    <div class="card-effect">
+                        <div class="description">
+                            YouTube Clone <br>Using HTML & CSS
+                        </div>
+                        <div class="back">
+                            <img class="project-img" src="pics/yt clone.png" alt="">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="project">
+                    <div class="card-effect">
+                        <div class="description">
+                            To-Do List <br> Using HTML, CSS & JavaScript
+                        </div>
+                        <div class="back">
+                            <img class="project-img" src="pics/todo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="project">
+                    <div class="card-effect">
+                        <div class="description">
+                            Rock Paper Scissors <br>Using HTML, CSS & JavaScript
+                        </div>
+                        <div class="back">
+                            <img class="project-img" src="pics/Rock paper scissor.png" alt="">
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="project">
+                    <div class="card-effect">
+                        <div class="description">
+                            Login Page <br> Using HTML, CSS & JavaScript
+                        </div>
+                        <div class="back">
+                            <img class="project-img" src="pics/todo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        <div style="display: block; margin-top:80px; 
+            color: #ababab; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; letter-spacing: 1px;"><h1>Qualification</h1>
+            <div class="Qualification">
+                <li>Chalapathi Institute of technology(B.Tech)</li>
+                <li>Chalapathi Institute of technology(Diploma)</li>
+                <li>Kerala Model School(10th)</li>
+            </div>
+        </div>
+        
+        <div>
+            <p>About me</p>
+        </div>
+
+
+
+
+        <script>
+            function scrollPage (targetHeight) {
+                window.scroll({
+                    top: targetHeight,
+                    behavior: "smooth"
+                })
+            }
+
+
+            const buttons = document.querySelectorAll(".buttons")
+            console.log(buttons);
+
+            function updateActiveButton () {
+
+                const scrollPosition = window.scrollY;
+                console.log(scrollPosition);
+
+                buttons.forEach ((button) =>
+                {
+                    const height = parseInt(button.getAttribute("onclick").split("(")[1].split(")")[0]);
+                    console.log(height);
+
+                    if (scrollPosition >= height && scrollPosition < height) {
+                        button.classList.add("active");
+                    } else {
+                        button.classList.remove("active");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll",updateActiveButton);
+
+            updateActiveButton();
+
+        </script>
+
+
+    </body>
+</html>
