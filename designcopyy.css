@@ -44,7 +44,7 @@ body {
 }
 
 .right-section {
-    width: 255px;
+    width: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,15 +82,13 @@ body {
 }
 
 .git-icon,
-.linkedin-icon,
-.twitter-icon {
+.linkedin-icon {
     position: relative;
     display: grid;
     justify-content: center;
 }
 .git-icon .tooltip,
-.linkedin-icon .tooltip,
-.twitter-icon .tooltip {
+.linkedin-icon .tooltip{
     position: absolute;
     background-color: #ababab;
     border-radius: 2px;
@@ -103,8 +101,7 @@ body {
     font-weight: 500;
 }
 .git-icon:hover .tooltip,
-.linkedin-icon:hover .tooltip,
-.twitter-icon:hover .tooltip {
+.linkedin-icon:hover .tooltip {
     opacity: 1;
     transition: opacity 0.25s;
 }
