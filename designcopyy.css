@@ -1,58 +1,55 @@
+* {
+    font-family: Poppins, sans-serif;
+}
+
 body {
     background-color: rgb(20, 14, 14);
     margin: 0;
-    padding-top: 150px;
-    padding-left: 20px;
-    padding-bottom: 900px;
+    padding-top: 70px;
 }
 
 .header {
-    height: 70px;
-    background-color: #ababab;   
+    height: 80px;
+    background-color: #abababf4;   
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     display: flex;
+    gap: 4vw;
     box-shadow: inset 4px 4px 10px  rgb(63, 48, 48);
     z-index: 1;
+    transition: 0.1s;
+}
+
+.left-section, .middle-section, .right-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .left-section {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: bold;
-    font-size: 25px;
+    background: firebrick;
+    width: 22%;
     color: white;
-    display: grid;
-    grid-template-rows: 1fr;
-    place-items: end;
-    flex-shrink: 0;
-    padding-left: 2em;
-    background-color: firebrick;
+    align-items: last baseline;
     border-top-right-radius: 20px;
-    border-bottom: 2px solid #ababab;
+    border-bottom: 2px solid #abababf4;
+}
+.left-section h1 {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-
 .middle-section {
-    display: grid;
-    width: 600vw;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 2em;
-    padding-right: 200px;
-    padding-left: 100px;
+    width: 50%;
 }
 
 .right-section {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-shrink: 0;
-    padding-right: 25px;
+    width: 20%;
 }
 
-.left-section{
+.left-section {
     letter-spacing: 3px;
     transition: text-shadow 300ms;
 }
@@ -63,22 +60,21 @@ body {
 .buttons {
     background: transparent;
     border: none;
-    height: auto;
     padding: 0;
-    margin-top: 5px;
     color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 600;
     font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.buttons:hover {    
+.buttons:hover {
     color: firebrick;
     transform: scale(1.1);
-    transition: transform 0.15s;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 .buttons:active {
     transform: scale(0.9);    
-    text-shadow: firebrick 1px 0 10px;
+    text-shadow: firebrick 1px 0 20px;
 }
 
 .git-icon,
@@ -87,18 +83,25 @@ body {
     display: grid;
     justify-content: center;
 }
+
+.git-icon .tooltip,
+.linkedin-icon .tooltip, .resume-button {
+    background-color: rgba(255, 68, 0);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+}
+
 .git-icon .tooltip,
 .linkedin-icon .tooltip{
     position: absolute;
-    background-color: #ababab;
-    border-radius: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 4px;
     justify-content: center;
     bottom: -39px;
     opacity: 0;
     pointer-events: none;
-    font-weight: 500;
 }
 .git-icon:hover .tooltip,
 .linkedin-icon:hover .tooltip {
@@ -123,31 +126,51 @@ body {
     color: black;
 }
 
+.resume-button {
+    border-radius: 4px;
+    border: none;
+    transition: all 0.3s;
+}
+.resume-button:hover {
+    color: rgba(255, 68, 0);
+    background-color: white;
+    cursor: pointer;
+}
+
+section {
+    padding: 9vw;
+}
 
 .profile {
     display: flex;
     margin-bottom: 80px;
 }
-.profile-pic {
-    margin-right: 100px;
-    margin-left: 30px;
-    border-radius: 20px;
-    transition: transform 0.75s;
+.profile-pic{
+    width: 100%;
+    animation: float 4s ease-in-out infinite;
 }
 
-.profile-pic:hover {
-    transform: scale(1.1);
+.profile img {
+    border-radius: 20px;
+}
+
+@keyframes float {
+    50% { transform: translateY(10px);}
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .Name {
     color: #ababab;
-    font-family: Poppins, sans-serif;
-    margin: 20px;
+    padding: 20px;
     font-weight: bold;
     font-size: 30px;
     white-space: nowrap;
     overflow: hidden;
-    margin-bottom: 50px;
 }
 
 .Name span {
@@ -170,30 +193,76 @@ p {
 .overview {
     width: 60%;
     padding: 8px 20px;
-    border: 2px solid rgba(156, 156, 156);
     border-radius: 14px;
-    box-shadow: 5px 5px 10px rgba(156, 156, 156, 0.895);
+    box-shadow: 5px 5px 40px rgba(156, 156, 156, 0.311), inset 5px 5px 40px rgba(156, 156, 156, 0.381);
     letter-spacing: 2px;
     color: rgb(212, 207, 207);
 }
 
+.scroll-btn-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-.Projects {
+.scroll-button {
+    height: 50px;
+    width: 150px;
+    border-radius: 50px;
+    border: none;
+    color: #e8e8e8;
+    background: rgba(255, 68, 0);
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.scroll-button:hover {
+    background: rgba(255, 68, 0, 0.82);
+}
+
+.heading h1, .footer h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ababab;
-    padding-left: 30px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 1px;
+    padding: 40px 0;
+}
+
+
+.Projects span {
+    margin-left: 14px;
+}
+
+.Projects a {
+    color: white;
+    text-decoration: none;
+    background-color: rgba(255, 68, 0);
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(255, 68, 0), inset 5px 5px 10px white;
+    padding: 0 10px;
+    position: absolute;
+    top: 70%;
+    right: 30%;
+    animation: jump 0.5s cubic-bezier(0.5, 0.05, 1, 0.5 ) infinite alternate;
+}
+
+@keyframes jump {
+    from { transform: translate3d(0, 0, 0)}
+    to { transform: translate3d(0, 50px, 0)}
 }
 
 .flex {
     display: flex;
 }
 .project {
-    width: 300px;
+    width: 30%;
     height: 250px;
     perspective: 1000px;
     margin-right: 70px;
-    margin-top: 30px;
 }
 
 .card-effect {
@@ -216,7 +285,6 @@ p {
     backface-visibility: hidden;
     display: flex;
     align-items: center;
-    text-shadow: 2px px black ;
 }
 
 .description {
@@ -224,6 +292,8 @@ p {
     color: white;
     border-radius: 10px;
     font-size: 24px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+    text-shadow: 2px 3px black;
     transform: rotateY(0deg);
     margin-left: 20px;
     padding-left: 20px;
@@ -232,6 +302,7 @@ p {
 .back {
     border-radius: 10px;
     transform: rotateY(180deg);
+    position: relative;
 }
 
 .back .project-img {
@@ -241,10 +312,217 @@ p {
     margin-left: 20px;
 }
 
+.study {
+    position: relative;
+    margin-right: 10px;
+}
+.study-img {
+    height: 500px;
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 10px 10px 40px rgb(44, 44, 44);
+}
+
 .Qualification {
-    font-size: 20px;
-    display: inline-block;
+    position: absolute;
+    font-size: 25px;
     color: white;
+    top: 90px;
+    right: 100px;
+}
+
+.Qualification span {
+    padding: 50px;
+}
+
+.Qualification li {
+    font-weight: 500;
+    font-weight: bold;
+}
+
+.Qualification li::marker {
+    content: url(pics/study-logo.jpg);
+}
+
+.form-div {
+    display: flex;
+    width: 100%;
+    gap: 50px;
+    padding-bottom: 30px;
+}
+
+.Contact-me {
+    height: 315px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: rgba(255, 68, 0);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 1px 8px 10px 2px black;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.Contact-me p {
+    margin: 0;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.Contact-me::after {
+    content: " ";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    z-index: -1;
+    transition: bottom .4s ease-in-out;
+}
+
+.Contact-me:hover::after {
+    bottom: 0;
+}
+
+.Contact-me:hover, .Contact-me:hover p {
+    color: rgba(255, 68, 0);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-input {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.form-div input, .form-div textarea {
+    color: white;
+    font-size: 15px;
+    background-color: transparent;
+    border: 2px solid #aaa;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+}
+
+.form-div textarea {
+    height: 195px;
+    padding: 20px 0;
+}
+
+.send {
+    color: #ffffff;
+    font-size: 15px;
+    background: rgba(255, 68, 0);
+    padding: 10px;
+    border: 2px solid rgba(255, 68, 0);
+    border-radius: 15px;
+}
+
+.send:hover {
+    background: rgba(255, 68, 0, 0.82);
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer h1 {
+    padding: 20px 0;
+}
+
+.footer button {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 
+@media only screen and (max-width: 540px) {
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .profile img {
+        height: 180px;
+        width: 150px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 10px;
+    }
+    .profile-pic {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .Name {
+        font-size: 20px;
+        padding-bottom: 0;
+    }
+    .overview {
+        width: 100%;
+    }
+
+    .details {
+        padding-top: 20px;
+    }
+
+    .overview {
+        font-size: small;
+    }
+    
+    .flex {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 5vw;
+    }
+
+    .project {
+        width: 80%;
+    }
+
+    .study-img {
+        height: 50%;
+    }
+    .Qualification {
+        font-size: 10px;
+        top: 7vw;
+        right: -3vw;
+    }
+
+    .form-div {
+        flex-direction: column;
+    }
+
+    .footer h1 {
+        font-size: 18px;
+    }
+
+    .footer button {
+        font-size: 10px;
+    }
+}
