@@ -19,7 +19,7 @@ body {
     gap: 4vw;
     box-shadow: inset 4px 4px 10px  rgb(63, 48, 48);
     z-index: 1;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 .left-section, .middle-section, .right-section {
@@ -65,12 +65,12 @@ body {
     font-weight: 600;
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.2s;
 }
 .buttons:hover {
     color: firebrick;
     transform: scale(1.1);
     cursor: pointer;
-    transition: all 0.2s;
 }
 .buttons:active {
     transform: scale(0.9);    
@@ -137,6 +137,10 @@ body {
     cursor: pointer;
 }
 
+.burger {
+    display: none;
+}
+
 section {
     padding: 9vw;
 }
@@ -200,10 +204,8 @@ p {
 }
 
 .scroll-btn-div {
-    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
 }
 
 .scroll-button {
@@ -216,6 +218,8 @@ p {
     padding: 15px;
     font-weight: bold;
     cursor: pointer;
+    position: absolute;
+    left: 10%;
 }
 
 .scroll-button:hover {
@@ -232,6 +236,9 @@ p {
     padding: 40px 0;
 }
 
+main, .Projects {
+    height: 500px;
+}
 
 .Projects span {
     margin-left: 14px;
@@ -458,6 +465,43 @@ p {
 
 
 @media only screen and (max-width: 540px) {
+    .header {
+        height: 10px;
+    }
+
+    .resp-header {
+        height: 300px;
+    }
+
+    .middle-section, .right-section {
+        flex-direction: column;
+        opacity: 0;
+    }
+
+    .resp-left {
+        height: 60px;
+    }
+
+    .burger {
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 2%;
+        cursor: pointer;
+    }
+
+    .line {
+        height: 5px;
+        width: 33px;
+        background-color: white;
+        border-radius: 4px;
+        margin: 5px;
+    }
+
+    .v-nav {
+        opacity: 1;
+    }
+
     .profile {
         flex-direction: column;
         align-items: center;
